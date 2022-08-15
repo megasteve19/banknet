@@ -3,7 +3,7 @@
 
     <h1 class="mb-3">BankNet'e Hoşgeldiniz!</h1>
     <p>
-        BankNet'e hoşgeldiniz. BankNet sayesinde hemen hesabınızı oluşturup para yatırabilir, çekebilir veya başka bir hesaba para yatırabilirsiniz.
+        BankNet'e hoşgeldiniz. BankNet sayesinde hemen hesabınızı oluşturup para yatırabilir veya çekebilirsiniz.
     </p>
 </template>
 

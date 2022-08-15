@@ -13,6 +13,9 @@ use App\Models\User;
 
 class Account extends Controller
 {
+    /**
+     * Index page.
+     */
     public function index(Index $request)
     {
         return Inertia::render('Account', [
@@ -24,6 +27,9 @@ class Account extends Controller
         ]);
     }
 
+    /**
+     * Deposit endpoint.
+     */
     public function deposit(Deposit $request)
     {
         if($request->user()->balance() < 0)
@@ -38,6 +44,9 @@ class Account extends Controller
         }
     }
 
+    /**
+     * Withdraw endpoint.
+     */
     public function withdraw(Withdraw $request)
     {
         if($request->user()->withdraw($request->amount))

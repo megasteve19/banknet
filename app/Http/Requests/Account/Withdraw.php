@@ -29,6 +29,8 @@ class Withdraw extends FormRequest
                 'required',
                 'numeric',
                 'min:0.01',
+                
+                // Calculating maximum withdraw amount based on balance.
                 'max:' . (Auth::user()->balance() <= -500 ? Auth::user()->balance() + 500 : 500),
             ],
         ];

@@ -43,16 +43,31 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Transactions relationship.
+     */
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
     }
 
+    /**
+     * Total balance of the user. Basically the sum of all transactions.
+     * 
+     * @return float
+     */
     public function balance()
     {
         return $this->transactions()->sum('amount');
     }
 
+    /**
+     * Deposit money to the user's account.
+     * 
+     * @param float $amount
+     * @param float $fee
+     * @return bool
+     */
     public function deposit(float $amount, float $fee)
     {
         return $this->transactions()->create([
@@ -62,6 +77,12 @@ class User extends Authenticatable
         ]);
     }
 
+    /**
+     * Withdraw money from the user's account.
+     * 
+     * @param float $amount
+     * @return bool
+     */
     public function withdraw(float $amount)
     {
         return $this->transactions()->create([
